@@ -1,0 +1,36 @@
+﻿@page "/"
+
+@using DataGridSeparateEditForm.Data
+@inject WeatherForecastService ForecastService
+
+<h1>DxDataGrid for Blazor with a separate edit form</h1>
+@if (forecasts == null)
+{
+    <h1>Loading...</h1>
+}
+else
+{
+    <DxDataGrid Data=@forecasts ShowFilterRow=false>
+        <DxDataGridColumn Field=@nameof(WeatherForecast.ID) Width="150px" Caption="#">
+            <DisplayTemplate>
+                @{
+                    int keyField = (context as WeatherForecast).ID;
+                    <a href="/SeparateEditForm/@keyField">Edit</a>
+                }
+            </DisplayTemplate>
+        </DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C)"></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(WeatherForecast.TemperatureF) Caption="Temp. (F)"></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(WeatherForecast.Summary) Caption="Summary"></DxDataGridColumn>
+        <DxDataGridDateEditColumn Field=@nameof(WeatherForecast.Date)></DxDataGridDateEditColumn>
+    </DxDataGrid>
+}
+
+@functions {
+    WeatherForecast[] forecasts;
+
+    protected override async Task OnInitAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync();
+    }
+}

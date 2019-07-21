@@ -1,4 +1,4 @@
-###DxDataGrid for Blazor - How to edit a row on a separate page
+### DxDataGrid for Blazor - How to edit a row on a separate page
 
 This example illustates how to create DxDataGrid for Blazor, add a template column with a hyperlink and navigate to a separate page using this hyperlink. The key field value is sent as a parameter. 
 

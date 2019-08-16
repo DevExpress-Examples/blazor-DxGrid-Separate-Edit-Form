@@ -40,7 +40,7 @@ else
     WeatherForecast forecast = null;
     WeatherForecast copyForecast = null;
     string[] summaries;
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         forecast = await ForecastService.GetForecastByIdAsync(Convert.ToInt32(id));
         copyForecast = new WeatherForecast()

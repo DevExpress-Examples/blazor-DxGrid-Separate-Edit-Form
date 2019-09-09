@@ -1,5 +1,5 @@
 ﻿@page "/SeparateEditForm/{id}"
-@inject IUriHelper UriHelper
+@inject NavigationManager UriHelper
 @using DataGridSeparateEditForm.Data
 @inject WeatherForecastService ForecastService
 
@@ -35,7 +35,7 @@ else
 @functions {
 
     [Parameter]
-    string id { get; set; }
+    public string id { get; set; }
 
     WeatherForecast forecast = null;
     WeatherForecast copyForecast = null;

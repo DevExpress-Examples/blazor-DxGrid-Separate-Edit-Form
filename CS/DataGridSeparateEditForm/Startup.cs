@@ -27,6 +27,7 @@ namespace DataGridSeparateEditForm
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddDevExpressBlazor();
             services.AddSingleton<WeatherForecastService>();
         }
 

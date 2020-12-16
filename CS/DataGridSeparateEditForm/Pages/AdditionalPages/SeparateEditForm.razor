@@ -9,25 +9,26 @@
 }
 else
 {
-    <DxFormLayout Data=@copyForecast ItemUpdating=@((fieldName, newValue) => OnItemUpdating(fieldName, newValue))>
+    <DxFormLayout Data=@copyForecast ItemUpdating=@((pair) => OnItemUpdating(pair.Key, pair.Value))>
         <DxFormLayoutItem Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C):" ColSpanMd="6" />
         <DxFormLayoutItem Field=@nameof(WeatherForecast.Summary) Caption="Summary:" ColSpanMd="6">
             <Template>
-                <DxComboBox Data=@summaries
-                            SelectedItem=@(((string)((ValueEditingContext)context).Value))
-                            SelectedItemChanged=@(value => ((ValueEditingContext)context).OnChanged(value))></DxComboBox>
+                <DxComboBox Data=@summaries 
+                           Value="@(((string)((ValueEditContext)context).Value))" 
+                           ValueChanged="@((string value) => ((ValueEditContext)context).OnChanged(value))"></DxComboBox>
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field=@nameof(WeatherForecast.Date) Caption="Date:" ColSpanMd="6">
             <Template>
-                <DxDateEdit Date=@(((DateTime)((ValueEditingContext)context).Value))
-                            DateChanged=@(value => ((ValueEditingContext)context).OnChanged(value))></DxDateEdit>
+                <DxDateEdit Date=@(((DateTime)((ValueEditContext)context).Value))
+                            DateChanged=@((DateTime value) => ((ValueEditContext)context).OnChanged(value))></DxDateEdit>
             </Template>
         </DxFormLayoutItem>
-        <DxFormLayoutItem ColSpanMd="6">
+        
+        <DxFormLayoutItem ColSpanMd="3" BeginRow="true">
             <Template>
-                <button id="saveButton" @onclick="@(() => { saveChanges(); })">Save</button>
-                <button id="cancelButton" @onclick="@(() => { cancelChanges(); })">Cancel</button>
+                <DxButton Id="saveButton" RenderStyle="ButtonRenderStyle.Success" Click="@(()=> { saveChanges();  })" Text="Save"></DxButton>
+                <DxButton Id="cancelButton" RenderStyle="ButtonRenderStyle.Secondary" Click="@(()=> { cancelChanges();  })" Text="Cancel"></DxButton>
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>

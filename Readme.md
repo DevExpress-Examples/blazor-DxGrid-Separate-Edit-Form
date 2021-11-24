@@ -8,7 +8,6 @@
 
 This example creates an edit form on a separate page.
 
-
 ![Edit form on a separate page](images/datagrid-with-external-edit-form.gif)
 
 The example shows how to do the following:

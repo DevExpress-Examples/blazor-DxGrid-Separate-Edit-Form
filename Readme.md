@@ -6,11 +6,13 @@
 
 # Data Grid for Blazor - How to edit a row on a separate page
 
-This example shows how to create an edit form on a separate page.
+This example creates an edit form on a separate page.
+
 
 ![Edit form on a separate page](images/datagrid-with-external-edit-form.gif)
 
-The example shows how to implement the following:
+The example shows how to do the following:
+
 * Create a Data Grid.
 * Add a template column with a hyperlink.
 * Use the hyperlink to navigate to a separate page and pass the key field value a parameter. 

@@ -3,12 +3,10 @@
 @using DataGridSeparateEditForm.Data
 @inject WeatherForecastService ForecastService
 
-@if (copyForecast == null)
-{
+@if (copyForecast == null) {
     <h1>Loading...</h1>
 }
-else
-{
+else {
     <DxFormLayout Data=@copyForecast ItemUpdating=@((pair) => OnItemUpdating(pair.Key, pair.Value))>
         <DxFormLayoutItem Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C):" ColSpanMd="6" />
         <DxFormLayoutItem Field=@nameof(WeatherForecast.Summary) Caption="Summary:" ColSpanMd="6">
@@ -27,8 +25,8 @@ else
         
         <DxFormLayoutItem ColSpanMd="3" BeginRow="true">
             <Template>
-                <DxButton Id="saveButton" RenderStyle="ButtonRenderStyle.Success" Click="@(()=> { saveChanges();  })" Text="Save"></DxButton>
-                <DxButton Id="cancelButton" RenderStyle="ButtonRenderStyle.Secondary" Click="@(()=> { cancelChanges();  })" Text="Cancel"></DxButton>
+                <DxButton Id="saveButton" RenderStyle="ButtonRenderStyle.Success" Click="@(()=> { saveChanges(); })" Text="Save"></DxButton>
+                <DxButton Id="cancelButton" RenderStyle="ButtonRenderStyle.Secondary" Click="@(()=> { cancelChanges(); })" Text="Cancel"></DxButton>
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>
@@ -41,11 +39,9 @@ else
     WeatherForecast forecast = null;
     WeatherForecast copyForecast = null;
     string[] summaries;
-    protected override async Task OnInitializedAsync()
-    {
+    protected override async Task OnInitializedAsync() {
         forecast = await ForecastService.GetForecastByIdAsync(Convert.ToInt32(id));
-        copyForecast = new WeatherForecast()
-        {
+        copyForecast = new WeatherForecast() {
             ID = forecast.ID,
             Date = forecast.Date,
             Summary = forecast.Summary,
@@ -54,28 +50,22 @@ else
         summaries = await ForecastService.GetSummariesAsync();
     }
 
-    void OnItemUpdating(string fieldName, object newValue)
-    {
-        if (fieldName == nameof(WeatherForecast.Summary))
-        {
+    void OnItemUpdating(string fieldName, object newValue) {
+        if (fieldName == nameof(WeatherForecast.Summary)) {
             copyForecast.Summary = newValue.ToString();
         }
-        else if (fieldName == nameof(WeatherForecast.TemperatureC))
-        {
+        else if (fieldName == nameof(WeatherForecast.TemperatureC)) {
             copyForecast.TemperatureC = Convert.ToInt32(newValue);
         }
-        else if (fieldName == nameof(WeatherForecast.Date))
-        {
+        else if (fieldName == nameof(WeatherForecast.Date)) {
             copyForecast.Date = Convert.ToDateTime(newValue);
         }
     }
-    async void saveChanges()
-    {
+    async void saveChanges() {
         await ForecastService.Update(forecast, copyForecast);
         UriHelper.NavigateTo(@"\");
     }
-    void cancelChanges()
-    {
+    void cancelChanges() {
         UriHelper.NavigateTo(@"\");
     }
 }

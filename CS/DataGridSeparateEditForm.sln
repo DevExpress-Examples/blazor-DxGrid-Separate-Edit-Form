@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridSeparateEditForm", "DataGridSeparateEditForm\DataGridSeparateEditForm.csproj", "{673E2FA5-F639-49CE-B4DE-5F1929E10F43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridSeparateEditForm", "DataGridSeparateEditForm\DataGridSeparateEditForm.csproj", "{6489DADE-CB35-4356-ADDC-F4D671A471A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{673E2FA5-F639-49CE-B4DE-5F1929E10F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{673E2FA5-F639-49CE-B4DE-5F1929E10F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{673E2FA5-F639-49CE-B4DE-5F1929E10F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{673E2FA5-F639-49CE-B4DE-5F1929E10F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6489DADE-CB35-4356-ADDC-F4D671A471A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6489DADE-CB35-4356-ADDC-F4D671A471A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6489DADE-CB35-4356-ADDC-F4D671A471A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6489DADE-CB35-4356-ADDC-F4D671A471A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4367BF22-5F87-4DC8-91FF-EE949EAF7069}
+		SolutionGuid = {5A5DBF67-C23C-4DA2-B65F-8CDA6B38F5C0}
 	EndGlobalSection
 EndGlobal

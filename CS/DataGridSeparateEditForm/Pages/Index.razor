@@ -2,30 +2,27 @@
 @using DataGridSeparateEditForm.Data
 @inject WeatherForecastService ForecastService
 
-@if (forecasts == null) {
-    <h1>Loading...</h1>
-}
-else {
-    <DxDataGrid Data=@forecasts ShowFilterRow=false>
-        <DxDataGridColumn Field=@nameof(WeatherForecast.ID) Width="150px" Caption="#">
-            <DisplayTemplate>
+<DxGrid Data="forecasts">
+    <Columns>
+        <DxGridCommandColumn>
+            <CellDisplayTemplate>
                 @{
-                    int keyField = (context as WeatherForecast).ID;
+                    int keyField = ((WeatherForecast)context.DataItem).ID;
                     <a style="text-decoration: none;" href="/SeparateEditForm/@keyField">Edit</a>
                 }
-            </DisplayTemplate>
-        </DxDataGridColumn>
-        <DxDataGridColumn Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C)"></DxDataGridColumn>
-        <DxDataGridColumn Field=@nameof(WeatherForecast.TemperatureF) Caption="Temp. (F)"></DxDataGridColumn>
-        <DxDataGridColumn Field=@nameof(WeatherForecast.Summary) Caption="Summary"></DxDataGridColumn>
-        <DxDataGridDateEditColumn Field=@nameof(WeatherForecast.Date) DisplayFormat="dd/MM/yyyy"></DxDataGridDateEditColumn>
-    </DxDataGrid>
-}
+            </CellDisplayTemplate>
+        </DxGridCommandColumn>
+        <DxGridDataColumn FieldName=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C)" />
+        <DxGridDataColumn FieldName=@nameof(WeatherForecast.Summary) Caption="Summary" />
+        <DxGridDataColumn FieldName=@nameof(WeatherForecast.Date) DisplayFormat="dd/MM/yyyy" />
+    </Columns>
+</DxGrid>
 
 @code {
-    WeatherForecast[]? forecasts;
-
+    private List<WeatherForecast>? forecasts;
+    string[]? summaries;
     protected override async Task OnInitializedAsync() {
         forecasts = await ForecastService.GetForecastAsync();
+        summaries = ForecastService.Summaries;
     }
 }

@@ -4,9 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Data Grid for Blazor - How to edit a row on a separate page
-
-The Data Grid was moved to maintenance support mode. No new features/capabilities will be added to this component. We recommend that you [migrate](https://docs.devexpress.com/Blazor/403162/grid/migrate-from-data-grid-to-grid) to the [Grid](https://docs.devexpress.com/Blazor/403143/grid) component. 
+# Grid for Blazor - How to edit a row on a separate page
 
 This example creates an edit form on a separate page.
 
@@ -14,11 +12,11 @@ This example creates an edit form on a separate page.
 
 The example shows how to do the following:
 
-* Create a Data Grid.
-* Add a template column with a hyperlink.
-* Use the hyperlink to navigate to a separate page and pass the key field value a parameter. 
-* Edit the record on the separate page.
-* Navigate back to the page with the Data Grid.
+* Create a Grid.
+* Add a command column template a hyperlink to the edit form.
+* Use the hyperlink to navigate to a separate page and pass the key field value as a parameter. 
+* Edit the record on the separate page and apply changes to the data source.
+* Navigate back to the page with the Grid.
 
 <!-- default file list -->
 ## Files to look at
@@ -29,9 +27,4 @@ The example shows how to do the following:
 
 ## Documentation
 
-* [DisplayTemplate](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGridColumn.DisplayTemplate)
-* [EditTemplate](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGridColumn.EditTemplate)
-
-## More Examples
-
-* [Data Grid - Inline Editing](https://github.com/DevExpress-Examples/Blazor-dxdatagrid-inline-editing)
+[CellDisplayTemplate](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGridCommandColumn.CellDisplayTemplate)

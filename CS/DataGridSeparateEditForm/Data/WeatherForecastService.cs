@@ -1,41 +1,39 @@
 namespace DataGridSeparateEditForm.Data {
     public class WeatherForecastService {
-        private static string[] Summaries = new[]
-        {
-            "Hot", "Warm", "Cold", "Freezing"
+        public readonly string[] Summaries = new[] {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
-        private List<WeatherForecast> CreateForecast() {
-            var rng = new Random();
-            DateTime startDate = DateTime.Now;
-            return Enumerable.Range(1, 15).Select(index => new WeatherForecast {
-                ID = index,
-                Date = startDate.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            }).ToList();
+        private List<WeatherForecast>? Forecasts;
+        public Task<List<WeatherForecast>> GetForecastAsync() {
+            if (Forecasts == null) {
+                var rng = new Random();
+                Forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast {
+                    ID = index,
+                    Date = DateTime.Today.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                }).ToList();
+            }
+            return Task.FromResult(Forecasts);
         }
-        private List<WeatherForecast> Forecasts { get; set; }
-        public WeatherForecastService() {
-            Forecasts = CreateForecast();
+        public Task<List<WeatherForecast>> ChangeForecastAsync(WeatherForecast changed) {
+            var orginalForecast = Forecasts.FirstOrDefault(i => i.ID == changed.ID);
+            if (orginalForecast != null) {
+                orginalForecast.TemperatureC = changed.TemperatureC;
+                orginalForecast.Summary = changed.Summary;
+                orginalForecast.Date = changed.Date;
+            }
+            else {
+                Forecasts.Add(changed);
+            }
+            return Task.FromResult(Forecasts);
         }
-        public Task<WeatherForecast[]> GetForecastAsync() {
-            return Task.FromResult(Forecasts.ToArray());
+        public Task<List<WeatherForecast>> Remove(WeatherForecast forecast) {
+            Forecasts.Remove(forecast);
+            return Task.FromResult(Forecasts);
         }
         public Task<WeatherForecast> GetForecastByIdAsync(int id) {
             return Task.FromResult(Forecasts.Where(m => m.ID == id).FirstOrDefault());
-        }
-        public Task<string[]> GetSummariesAsync() {
-            return Task.FromResult(Summaries);
-        }
-        WeatherForecast[] UpdateInternal(WeatherForecast dataItem, WeatherForecast newDataItem) {
-            dataItem.Date = newDataItem.Date;
-            dataItem.TemperatureC = newDataItem.TemperatureC;
-            dataItem.Summary = newDataItem.Summary;
-            return Forecasts.ToArray();
-        }
-        public Task<WeatherForecast[]> Update(WeatherForecast dataItem, WeatherForecast newDataItem) {
-            return Task.FromResult(UpdateInternal(dataItem, newDataItem));
         }
     }
 }

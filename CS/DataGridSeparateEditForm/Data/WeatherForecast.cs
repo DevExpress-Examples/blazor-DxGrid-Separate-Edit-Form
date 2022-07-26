@@ -3,7 +3,7 @@ namespace DataGridSeparateEditForm.Data {
         public int ID { get; set; }
         public DateTime Date { get; set; }
         public int TemperatureC { get; set; }
-        public double TemperatureF => Math.Round((TemperatureC * 1.8 + 32), 2);
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
         public string? Summary { get; set; }
     }
 }

@@ -20,9 +20,7 @@
 
 @code {
     private List<WeatherForecast>? forecasts;
-    string[]? summaries;
     protected override async Task OnInitializedAsync() {
         forecasts = await ForecastService.GetForecastAsync();
-        summaries = ForecastService.Summaries;
     }
 }

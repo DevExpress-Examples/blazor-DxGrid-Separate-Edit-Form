@@ -13,8 +13,8 @@ This example creates an edit form on a separate page.
 The example shows how to do the following:
 
 * Create a Grid.
-* Add a command column template a hyperlink to the edit form.
-* Use the hyperlink to navigate to a separate page and pass the key field value as a parameter. 
+* Add a command column template with a hyperlink to the edit form.
+* Use the hyperlink to navigate to a separate page and pass the key field value. 
 * Edit the record on the separate page and apply changes to the data source.
 * Navigate back to the page with the Grid.
 

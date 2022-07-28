@@ -7,16 +7,16 @@
     <h1>Loading...</h1>
 }
 else {
-    <DxFormLayout Data=@copyForecast ItemUpdating=@((pair) => OnItemUpdating(pair.Key, pair.Value))>
-        <DxFormLayoutItem Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C):" ColSpanMd="6" />
-        <DxFormLayoutItem Field=@nameof(WeatherForecast.Summary) Caption="Summary:" ColSpanMd="6">
+   <DxFormLayout Data=@copyForecast ItemUpdating=@((pair) => OnItemUpdating(pair.Key, pair.Value))>
+        <DxFormLayoutItem Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C):" />
+        <DxFormLayoutItem Field=@nameof(WeatherForecast.Summary) Caption="Summary:">
             <Template>
                 <DxComboBox Data=@summaries 
                            Value="@(((string)((ValueEditContext)context).Value))" 
                            ValueChanged="@((string value) => ((ValueEditContext)context).OnChanged(value))"></DxComboBox>
             </Template>
         </DxFormLayoutItem>
-        <DxFormLayoutItem Field=@nameof(WeatherForecast.Date) Caption="Date:" ColSpanMd="6">
+        <DxFormLayoutItem Field=@nameof(WeatherForecast.Date) Caption="Date:">
             <Template>
                 <DxDateEdit Date=@(((DateTime)((ValueEditContext)context).Value))
                             DateChanged=@((DateTime value) => ((ValueEditContext)context).OnChanged(value))></DxDateEdit>
@@ -45,7 +45,7 @@ else {
             Summary = forecast.Summary,
             TemperatureC = forecast.TemperatureC
         };
-        summaries = await ForecastService.GetSummariesAsync();
+        summaries = ForecastService.Summaries;
     }
 
     void OnItemUpdating(string fieldName, object newValue) {
@@ -60,7 +60,7 @@ else {
         }
     }
     async void saveChanges() {
-        await ForecastService.Update(forecast, copyForecast);
+        await ForecastService.ChangeForecastAsync(copyForecast);
         UriHelper.NavigateTo(@"\");
     }
     void cancelChanges() {

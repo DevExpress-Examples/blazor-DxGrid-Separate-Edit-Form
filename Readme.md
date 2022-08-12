@@ -22,7 +22,7 @@ The example shows how to do the following:
 ## Files to look at
 
 * [Index.razor](./CS/DataGridSeparateEditForm/Pages/Index.razor)
-* [SeparateEditForm.razor](./CS/DataGridSeparateEditForm/Pages/AdditionalPages/SeparateEditForm.razor)
+* [SeparateEditForm.razor](./CS/DataGridSeparateEditForm/Pages/SeparateEditForm.razor)
 <!-- default file list end -->
 
 ## Documentation

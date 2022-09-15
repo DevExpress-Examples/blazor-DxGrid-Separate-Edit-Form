@@ -4,22 +4,21 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Grid for Blazor - How to edit a row on a separate page
+# Grid for Blazor - Create an edit form and modify on a separate page
 
-This example creates an edit form on a separate page.
+The DevExpress Blazor Grid offers multiple data editing options (including inline data editing within row cells). In this example, a separate edit form is used to modify row data.
 
 ![Edit form on a separate page](images/datagrid-with-external-edit-form.gif)
 
-The example shows how to do the following:
+This example demonstrates how you can:
 
-* Create a Grid.
-* Add a command column template with a hyperlink to the edit form.
-* Use the hyperlink to navigate to a separate page and pass the key field value. 
-* Edit the record on the separate page and apply changes to the data source.
-* Navigate back to the page with the Grid.
+* Add a Blazor Grid to a project
+* Add a command column template with a hyperlink to the edit form (the hyperlink is used to navigate to the edit form. It also passes the key field value to the edit form).
+* Edit row data in a separate page and apply changes to the data source.
+* Navigate back to the original page.
 
 <!-- default file list -->
-## Files to look at
+## Files to Review
 
 * [Index.razor](./CS/DataGridSeparateEditForm/Pages/Index.razor)
 * [SeparateEditForm.razor](./CS/DataGridSeparateEditForm/Pages/SeparateEditForm.razor)

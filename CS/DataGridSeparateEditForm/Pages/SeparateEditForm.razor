@@ -10,23 +10,17 @@ else {
    <DxFormLayout Data=@copyForecast ItemUpdating=@((pair) => OnItemUpdating(pair.Key, pair.Value))>
         <DxFormLayoutItem Field=@nameof(WeatherForecast.TemperatureC) Caption="Temp. (C):" />
         <DxFormLayoutItem Field=@nameof(WeatherForecast.Summary) Caption="Summary:">
-            <Template>
                 <DxComboBox Data=@summaries 
                            Value="@(((string)((ValueEditContext)context).Value))" 
                            ValueChanged="@((string value) => ((ValueEditContext)context).OnChanged(value))"></DxComboBox>
-            </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field=@nameof(WeatherForecast.Date) Caption="Date:">
-            <Template>
                 <DxDateEdit Date=@(((DateTime)((ValueEditContext)context).Value))
                             DateChanged=@((DateTime value) => ((ValueEditContext)context).OnChanged(value))></DxDateEdit>
-            </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem ColSpanMd="3" BeginRow="true">
-            <Template>
                 <DxButton Id="saveButton" RenderStyle="ButtonRenderStyle.Success" Click="@(()=> { saveChanges(); })" Text="Save"></DxButton>
                 <DxButton Id="cancelButton" RenderStyle="ButtonRenderStyle.Secondary" Click="@(()=> { cancelChanges(); })" Text="Cancel"></DxButton>
-            </Template>
         </DxFormLayoutItem>
     </DxFormLayout>
 }

@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Grid for Blazor - Create an edit form and modify on a separate page
+# Grid for Blazor - How to edit a row on a separate page
 
 The DevExpress Blazor Grid offers multiple data editing options (including inline data editing within row cells). In this example, a separate edit form is used to modify row data.
 

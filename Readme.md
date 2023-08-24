@@ -15,7 +15,7 @@ This example demonstrates how you can:
 * Add a Blazor Grid to a project
 * Add a command column template with a hyperlink to the edit form (the hyperlink is used to navigate to the edit form. It also passes the key field value to the edit form).
 * Edit row data in a separate page and apply changes to the data source.
-* Navigate back to the original page.
+* Navigate back to the original page...
 
 ## Files to Review
 

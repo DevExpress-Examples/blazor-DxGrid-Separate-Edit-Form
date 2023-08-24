@@ -17,12 +17,10 @@ This example demonstrates how you can:
 * Edit row data in a separate page and apply changes to the data source.
 * Navigate back to the original page.
 
-<!-- default file list -->
 ## Files to Review
 
 * [Index.razor](./CS/DataGridSeparateEditForm/Pages/Index.razor)
 * [SeparateEditForm.razor](./CS/DataGridSeparateEditForm/Pages/SeparateEditForm.razor)
-<!-- default file list end -->
 
 ## Documentation
 

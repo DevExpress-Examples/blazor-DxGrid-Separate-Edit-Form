@@ -17,7 +17,7 @@ This example illustrates how to create DxDataGrid for Blazor, add a template col
 
 Then, the necessary record is edited on this separate page and the page is navigated back to the page with DxDataGrid.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-separate-edit-form&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-separate-edit-form&~~~was_helpful=no)
 
